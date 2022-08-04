@@ -6,7 +6,7 @@ if not game:GetService("Players").LocalPlayer.Character then
     game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 end
 repeat
-    task.wait()
+    task.wait(20)
 until game.PlaceId == 8349889591
 
 task.wait()
@@ -16,18 +16,19 @@ local localPlayer = game:GetService("Players").LocalPlayer
 
 repeat
   for _, instance in next, workspace._UNITS:GetChildren() do
-    task.wait()
+    task.wait(5)
     if instance.Name ~= "erwin" then continue end
-    task.wait()
+    task.wait(5)
     if instance._stats.player.Value ~= localPlayer then continue end
-    task.wait()
+    task.wait(5)
     if table.find(erwinUnits, instance) then continue end
-task.wait()
+task.wait(5)
     table.insert(erwinUnits, instance)
-    task.wait()
+    task.wait(5)
   end
+  task.wait()
 until #erwinUnits >= 2
-
+task.wait (1)
 if #erwinUnits == 2 then
 local notifSound = Instance.new("Sound",workspace)
 notifSound.PlaybackSpeed = 1.5
