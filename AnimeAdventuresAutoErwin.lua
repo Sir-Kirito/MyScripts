@@ -16,11 +16,15 @@ local localPlayer = game:GetService("Players").LocalPlayer
 
 repeat
   for _, instance in next, workspace._UNITS:GetChildren() do
+    task.wait()
     if instance.Name ~= "erwin" then continue end
+    task.wait()
     if instance._stats.player.Value ~= localPlayer then continue end
+    task.wait()
     if table.find(erwinUnits, instance) then continue end
-
+task.wait()
     table.insert(erwinUnits, instance)
+    task.wait()
   end
 until #erwinUnits >= 2
 
