@@ -1,12 +1,12 @@
 repeat
-    wait(10)
 until game:GetService("Players").LocalPlayer ~= nil
 
 if not game:GetService("Players").LocalPlayer.Character then
     game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+    task.wait()
 end
 repeat
-    task.wait(30)
+    task.wait(10)
 until game.PlaceId == 8349889591
 
 task.wait()
@@ -16,15 +16,10 @@ local localPlayer = game:GetService("Players").LocalPlayer
 
 repeat task.wait(5)
   for _, instance in next, workspace._UNITS:GetChildren() do
-    task.wait(5)
     if instance.Name ~= "erwin" then continue end
-    task.wait(5)
     if instance._stats.player.Value ~= localPlayer then continue end
-    task.wait(5)
     if table.find(erwinUnits, instance) then continue end
-task.wait(5)
     table.insert(erwinUnits, instance)
-    task.wait(5)
   end
   task.wait()
 until #erwinUnits >= 2
