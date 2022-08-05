@@ -1,4 +1,5 @@
 repeat
+task.wait(3)
 until game:GetService("Players").LocalPlayer ~= nil
 
 if not game:GetService("Players").LocalPlayer.Character then
@@ -6,7 +7,7 @@ if not game:GetService("Players").LocalPlayer.Character then
     task.wait()
 end
 repeat
-    task.wait(10)
+    task.wait(3)
 until game.PlaceId == 8349889591
 
 task.wait()
