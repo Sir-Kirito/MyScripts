@@ -1,0 +1,158 @@
+--FAKE ORE DESTROYER
+for _, instance in next, workspace.Map.Ores:GetChildren() do
+    if instance.Base.CFrame.Y > 80   then instance:Destroy() end
+end
+local oreFolder = workspace.Map:FindFirstChild("Ores", true)
+--AC BYPASS
+for i, v in pairs(game.ReplicatedStorage:GetDescendants()) do
+    if v.Name:find("AAC") then
+        v:Destroy() -- anticheat 
+    end
+end
+
+for i, v in pairs(game.Workspace:GetChildren()) do -- anticheat
+    if v.Name:find("Hollow0") or v.Name:find("Angel") or v.Name:find("HollowDeadly") or (v.Name:find("Hollow1") or v.Name:find("WoodlandHunter")) then
+        v:Destroy()
+    end
+end
+local lplayer1 = game:GetService("Players").LocalPlayer.Character
+local oreList = {}
+local oreListMode = "Whitelist"
+local oreFarmEnabled = false
+local function oreFarm()
+	while oreFarmEnabled do
+        if oreFarmEnabled == false then
+            break
+        end
+        task.wait()
+		local function mine(ore)
+			if ore:IsA("Model") and ore:FindFirstChild("MineralMain") then
+				-- all this crap to make sure the ore is loaded before trying to mine it
+				local properties = ore:WaitForChild("Properties")
+				local hitpoints = properties:WaitForChild("Hitpoint")
+				local toughness = properties:WaitForChild("Toughness")
+				local owner = properties:WaitForChild("Owner")
+                local workplayer = game:GetService("Players").LocalPlayer
+				-- get any pickaxe in your backpack or character
+				local pickaxe = workplayer.Backpack:FindFirstChild("PickaxeControl", true) or workplayer.Character:FindFirstChild("PickaxeControl", true)
+				local character = workplayer.Character or workplayer.CharacterAdded:Wait(2)
+				local rPart = character:WaitForChild("HumanoidRootPart")
+				if pickaxe then
+					pickaxe = pickaxe.Parent
+					local power = pickaxe:WaitForChild("Power")
+					if toughness.Value <= power.Value then -- can't mine ores higher than your pickaxe level
+						local oldPosition = rPart.CFrame -- save old position
+						while hitpoints.Value > 0 do -- loop until ore is mined
+                        if oreFarmEnabled == false then
+                            break
+                        end
+							task.wait()
+							coroutine.wrap(function()
+								if pickaxe.Parent ~= character then
+									pickaxe.Parent = character -- force equip it
+								end
+								rPart.CFrame = ore.Base.CFrame - Vector3.new(0, 5, 0) -- tp to the ore
+								pickaxe.RemoteFunction:InvokeServer("hit", { hitpoints, toughness, owner })
+							end)()
+						end						pickaxe.Parent = workplayer.Backpack -- unequip it
+						rPart.CFrame = oldPosition -- go back to old position
+					end
+				end
+			end
+		end
+		-- this is self-explanatory
+		for _, ore in pairs(oreFolder:GetChildren()) do
+			if oreListMode == "Whitelist" then
+				if table.find(oreList, ore.Name) then
+					mine(ore)
+				end
+			elseif oreListMode == "Blacklist" then
+				if not table.find(oreList, ore.Name) then
+					mine(ore)
+				end
+			end
+		end
+	end
+end
+
+local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)() -- big mcThankies to uncle Pepsi's UI Lib
+
+local mainWindow = library:CreateWindow({
+	Name = "Kirito'S Auto Ore Farm | RCtrl to toggle GUI", -- change this to change the title
+	Themeable = false,
+})
+library.configuration.hideKeybind = Enum.KeyCode.RightControl
+
+local mainTab = mainWindow:CreateTab({ Name = "Main" })
+
+local oreFarmSection = mainTab:CreateSection({ Name = "Ore Farm", Side = "Left" })
+local oreFarmToggle = oreFarmSection:CreateToggle({
+	Name = "Enabled",
+	Callback = function(v)
+		oreFarmEnabled = v
+		if v then
+			coroutine.wrap(oreFarm)()
+		end
+	end,
+})
+local oreFarmListMode = oreFarmSection:AddDropdown({
+	Name = "List Mode",
+	List = { "Whitelist", "Blacklist" },
+	Callback = function(v)
+		oreListMode = v
+	end,
+})
+local oreFarmList = oreFarmSection:AddDropdown({
+	Name = "Ore List",
+	Multi = true,
+	List = {
+		"Crystal",
+		"Iron",
+		"Gold",
+		"Diamond",
+		"Cobalt",
+		"Viridis",
+		"Oureclasium",
+		"Tungsten",
+		"Titanium",
+		"Mithril",
+		"Adamantine",
+		"Titanstone",
+		"Gemstone of Purity",
+		"Gemstone of Hatred",
+		"Purite",
+		"Hatrite",
+		"Hevenite",
+        "Hellite",
+		"Moonstone",
+		"Forbidden Crystal",
+	},
+	Callback = function(v)
+		oreList = v
+	end,
+})
+local MiscSection = mainTab:CreateSection({ Name = "Misc", Side = "Right" })
+local FreezeCam = MiscSection:CreateToggle({
+	Name = "Freeze Cam",
+	Callback = function(v)
+		FreezeCam = v
+		if v then
+         workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
+        else
+         workspace.CurrentCamera.CameraType = Enum.CameraType.Custom  
+		end
+	end,
+})
+local FullBright = MiscSection:CreateToggle({
+	Name = "FullBright",
+	Callback = function(v)
+		FullBright = v
+		if v then
+            _G.fullbright = true
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+        else
+            _G.fullbright = false
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+		end
+	end,
+})
