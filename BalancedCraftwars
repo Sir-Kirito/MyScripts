@@ -178,6 +178,14 @@ local MegaFpsBoost = MiscSection:CreateButton({
 		loadstring(game:HttpGet("https://pastebin.com/raw/FVFFkkqZ", true))()
 	end,
 })
+if game.PlaceId == 9032150459 then
+local AntiTeleport = MiscSection:CreateButton({
+	Name = "Anti Creepyy Teleport",
+	Callback = function(v)
+		loadstring(game:HttpGet("https://pastebin.com/raw/BR2W3Uh5", true))()
+	end,
+})
+end
 for _, v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
 	v:Disable() -- anti afk
 end
