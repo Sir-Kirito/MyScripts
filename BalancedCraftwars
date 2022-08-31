@@ -1,9 +1,10 @@
---FAKE ORE DESTROYER
+if game.PlaceId == 8829364740 or 9032150459 then
+------------------------------------------------FAKE SHIT ORE DESTROYER--------------------------------------------------------------------------------------
 for _, instance in next, workspace.Map.Ores:GetChildren() do
     if instance.Base.CFrame.Y > 80   then instance:Destroy() end
 end
 local oreFolder = workspace.Map:FindFirstChild("Ores", true)
---AC BYPASS
+-----------------------------------------------------AC BYPASS----------------------------------------------------------------------------------------------------
 for i, v in pairs(game.ReplicatedStorage:GetDescendants()) do
     if v.Name:find("AAC") then
         v:Destroy() -- anticheat 
@@ -15,6 +16,7 @@ for i, v in pairs(game.Workspace:GetChildren()) do -- anticheat
         v:Destroy()
     end
 end
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 local lplayer1 = game:GetService("Players").LocalPlayer.Character
 local oreList = {}
 local oreListMode = "Whitelist"
@@ -51,7 +53,7 @@ local function oreFarm()
 								if pickaxe.Parent ~= character then
 									pickaxe.Parent = character -- force equip it
 								end
-								rPart.CFrame = ore.Base.CFrame - Vector3.new(0, 5, 0) -- tp to the ore
+								rPart.CFrame = ore.Base.CFrame - Vector3.new(0, 11, 0) -- tp to the ore
 								pickaxe.RemoteFunction:InvokeServer("hit", { hitpoints, toughness, owner })
 							end)()
 						end						pickaxe.Parent = workplayer.Backpack -- unequip it
@@ -156,3 +158,27 @@ local FullBright = MiscSection:CreateToggle({
 		end
 	end,
 })
+if game.PlaceId == 8829364740 then
+local Teleport = MiscSection:CreateButton({
+	Name = "Teleport Beneath",
+	Callback = function(v)
+            workspace.Map.BeneathTeleporter.RemoteFunction:InvokeServer("Confirm")
+	end,
+})
+end
+local Effects = MiscSection:CreateButton({
+	Name = "Remove All Effect",
+	Callback = function(v)
+		loadstring(game:HttpGet("https://pastebin.com/raw/swkQkjnu", true))()
+	end,
+})
+local MegaFpsBoost = MiscSection:CreateButton({
+	Name = "Mega Fps Boost",
+	Callback = function(v)
+		loadstring(game:HttpGet("https://pastebin.com/raw/FVFFkkqZ", true))()
+	end,
+})
+for _, v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+	v:Disable() -- anti afk
+end
+end
