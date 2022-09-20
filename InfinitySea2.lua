@@ -548,7 +548,7 @@ local RemoveFruit = TpRightGroupBox:AddButton('Teleport to Fruit Remover', funct
 game:GetService('Players').LocalPlayer.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(832, 10, -1030)
 end)
 
-local Pistol = TpRightGroupBox:AddButton('Teleport to Pistol Shop'), function()
+local Pistol = TpRightGroupBox:AddButton('Teleport to Pistol Shop', function()
 
 game:GetService('Players').LocalPlayer.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(1131, 11, -978)
 end)
