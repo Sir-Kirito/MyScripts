@@ -1,3 +1,5 @@
+
+game:GetService("Players").LocalPlayer.Data.Ban.Value = false -- idk just try :p
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
