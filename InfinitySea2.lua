@@ -639,12 +639,15 @@ while _G.split do
 if not game:IsLoaded() then game.Loaded:wait() end
     wait(.1)
     for i, v in next, game.Players:GetPlayers() do
+game:GetService("Players").LocalPlayer.PlayerScripts.ResetRetry.Disabled = true
 game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'UpperTorso':FindFirstChild'Waist':Destroy() wait(.1)
 game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'RightUpperLeg':Destroy() wait(.1)
 game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'LeftUpperLeg':Destroy() wait(.1)
-if _G.split == false or Library.Unloaded then break end
+if _G.split == false or Library.Unloaded then game:GetService("Players").LocalPlayer.PlayerScripts.ResetRetry.Disabled = false
+ break end
     end
-if _G.split == false or Library.Unloaded then break end
+if _G.split == false or Library.Unloaded then game:GetService("Players").LocalPlayer.PlayerScripts.ResetRetry.Disabled = false
+ break end
 end
 end)
 
