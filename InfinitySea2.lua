@@ -614,6 +614,11 @@ game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Cod
 wait(0.1)
 game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Code", "!Deploid_Family")
 wait(0.1)
+game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Code", "!Code_50K VISITS")
+wait(0.1)
+game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Code", "!Code_400 Likes")
+wait(0.1)
+game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Code", "!Code_Friend GuizeraYT :)")
 end)
 
 local hidename = MiscLeftGroupBox:AddButton('Hide Name', function()
