@@ -621,10 +621,11 @@ _G.hidename = true elseif
      _G.hidename == true then _G.hidename = false
     end
 while _G.hidename do
-    task.wait(.1)
-local speaker = game.Players.LocalPlayer
-speaker.Character:WaitForChild('BillboardGui'):Destroy()
-task.wait()
+if not game:IsLoaded() then game.Loaded:wait() end
+    wait(.1)
+    for i, v in next, game.Players:GetPlayers() do
+game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'BillboardGui':Destroy()
+end
 if _G.hidename == false or Library.Unloaded then break end
 end
 end)
@@ -635,16 +636,16 @@ _G.split = true elseif
      _G.split == true then _G.split = false
     end
 while _G.split do
-    task.wait()
-local speaker = game.Players.LocalPlayer
-speaker.Character.UpperTorso:WaitForChild("Waist"):Destroy()
-task.wait(.1)
-speaker.Character:WaitForChild("RightUpperLeg"):Destroy()
-task.wait(.1)
-speaker.Character:WaitForChild("LeftUpperLeg"):Destroy()
-task.wait()
+if not game:IsLoaded() then game.Loaded:wait() end
+    wait(.1)
+    for i, v in next, game.Players:GetPlayers() do
+game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'UpperTorso':FindFirstChild'Waist':Destroy() wait(.1)
+game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'RightUpperLeg':Destroy() wait(.1)
+game:GetService("Workspace")["___Game"]["___Characters"]:WaitForChild(v.Name):FindFirstChild'LeftUpperLeg':Destroy() wait(.1)
 if _G.split == false or Library.Unloaded then break end
-	end
+    end
+if _G.split == false or Library.Unloaded then break end
+end
 end)
 
 local Antiafk = MiscRightGroupBox:AddButton('Anti Afk', function()
