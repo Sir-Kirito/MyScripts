@@ -44,7 +44,7 @@ _G.CannonBandit = true elseif
      _G.CannonBandit == true then _G.CannonBandit = false
     end
 while _G.CannonBandit do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Island_Starter"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "CannonBandit" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -61,7 +61,7 @@ _G.BanditLeader = true elseif
      _G.BanditLeader == true then _G.BanditLeader = false
     end
 while _G.BanditLeader do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Island_Starter"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "BanditLeader" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -78,7 +78,7 @@ _G.Monkey = true elseif
      _G.Monkey == true then _G.Monkey = false
     end
 while _G.Monkey do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Jungle_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "Monkey" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -95,7 +95,7 @@ _G.Gorilla = true elseif
      _G.Gorilla == true then _G.Gorilla = false
     end
 while _G.Gorilla do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Jungle_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "Gorilla" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -112,7 +112,7 @@ _G.GiantMonkey = true elseif
      _G.GiantMonkey == true then _G.GiantMonkey = false
     end
 while _G.GiantMonkey do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Jungle_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "GiantMonkey" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -129,7 +129,7 @@ _G.MetalPlate = true elseif
      _G.MetalPlate == true then _G.MetalPlate = false
     end
 while _G.MetalPlate do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Jungle_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "Metal Plate" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -146,7 +146,7 @@ _G.Marine = true elseif
      _G.Marine == true then _G.Marine = false
     end
 while _G.Marine do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Shells_Town_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "Marine" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -163,7 +163,7 @@ _G.MarineHaki = true elseif
      _G.MarineHaki == true then _G.MarineHaki = false
     end
 while _G.MarineHaki do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Shells_Town_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "MarineHaki" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -180,7 +180,7 @@ _G.AxeHand = true elseif
      _G.AxeHand == true then _G.AxeHand = false
     end
 while _G.AxeHand do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Shells_Town_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "AxeHand" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -197,7 +197,7 @@ _G.GunnersBandit = true elseif
      _G.GunnersBandit == true then _G.GunnersBandit = false
     end
 while _G.GunnersBandit do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Syrup_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "GunnersBandit" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -214,7 +214,7 @@ _G.IronMassBandit = true elseif
      _G.IronMassBandit == true then _G.IronMassBandit = false
     end
 while _G.IronMassBandit do
-    wait(.01)
+    wait(.1)
 for _, instance in next, game:GetService("Workspace")["___Game"]["__Render"]["Syrup_Island"]["__Npcs"]["___Mobs"]:GetChildren() do
     if instance.Name == "IronMassBandit" and instance:WaitForChild("Humanoid").Health >0 then
        local behindamount = -3.5
@@ -438,7 +438,7 @@ _G.QIronMassBandits = true elseif
      _G.QIronMassBandits == true then _G.QIronMassBandits = false
     end
 while _G.QIronMassBandits do
-    wait(0.00001)
+    wait(.00001)
     if not game:GetService("Players").LocalPlayer:FindFirstChild("_Quest") then
         game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace")["___Game"]["__Render"]["Syrup_Island"]["__Npcs"]["___Quests"].IronMassBandits.HumanoidRootPart.CFrame + game:GetService("Workspace")["___Game"]["__Render"]["Syrup_Island"]["__Npcs"]["___Quests"].IronMassBandits.HumanoidRootPart.CFrame.lookVector * -3
         wait(.00001)
