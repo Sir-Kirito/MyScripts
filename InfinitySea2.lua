@@ -500,7 +500,7 @@ _G.Katana2 = true elseif
     end
 while _G.Katana2 do
     task.wait(.00001)
-game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Combat","SS2","UserSword",5)
+game:GetService("ReplicatedStorage").___Assets.___Events.__Fires:FireServer("Combat","DualKatana","UserSword",5)
 task.wait(.00001)
 if _G.Katana2 == false or Library.Unloaded then break end
 end
