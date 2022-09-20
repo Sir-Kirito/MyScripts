@@ -681,7 +681,7 @@ end)
 Library:SetWatermarkVisibility(true)
 Library:SetWatermark("Infinity Sea 2 - By: Kirito8888")
 
-Library.KeybindFrame.Visible = true; 
+Library.KeybindFrame.Visible = false; 
 Library:OnUnload(function()
     print('Unloaded!')
     Library.Unloaded = true
